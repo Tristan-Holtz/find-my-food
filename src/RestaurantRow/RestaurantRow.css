@@ -1,0 +1,20 @@
+.restaurant-row {
+  border-top: 1px solid orange;
+  box-shadow: 0 4.5px 0 0 orange;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.row_div-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.row_div-left {
+  align-items: right;
+  display: flex;
+  flex-direction: column;
+}

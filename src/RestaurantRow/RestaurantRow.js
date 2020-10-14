@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./RestaurantRow.css";
 export class RestaurantRow extends Component {
   state = {};
 
@@ -8,12 +8,16 @@ export class RestaurantRow extends Component {
     const { genre, name, city, state, telephone } = this.props.info;
     return (
       <section className="restaurant-row">
-        <div>
+        <div className="row_div-right">
           <h2>{name}</h2>
-          <p>{telephone}</p>
-          <p>{genre}</p>
+          <p>
+            <b>Phone Number:</b> {telephone}
+          </p>
+          <p>
+            <b>Cuisine:</b> {genre}
+          </p>
         </div>
-        <div>
+        <div className="row_div-left">
           <p>
             {city}, {state}
           </p>
