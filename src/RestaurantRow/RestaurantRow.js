@@ -4,7 +4,6 @@ export class RestaurantRow extends Component {
   state = {};
 
   render() {
-    console.log(this.props.info);
     const { genre, name, city, state, telephone } = this.props.info;
     return (
       <section className="restaurant-row">

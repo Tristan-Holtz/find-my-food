@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import RestaurantRow from "../RestaurantRow/RestaurantRow";
+import "./RestaurantContainer.css";
+import FilterMenu from "../FilterMenu/FilterMenu";
+import { connect } from "react-redux";
 
 export class RestaurantContainer extends Component {
   state = {
+    restaurantsList: [],
     restaurants: [],
   };
 
@@ -18,20 +22,33 @@ export class RestaurantContainer extends Component {
   }
 
   getRestaurantList(restaurants) {
+    this.setState({ restaurants: [...restaurants] });
     const restaurantList = restaurants.map((res) => {
       return <RestaurantRow info={res} />;
     });
-    this.setState({ restaurants: [...restaurantList] });
+    this.setState({ restaurantsList: [...restaurantList] });
   }
 
   render() {
     return (
-      <main className="restaurant-container">
-        <h3>Restaurants:</h3>
-        {this.state.restaurants}
+      <main>
+        <FilterMenu restaurants={this.state.restaurants} />
+        <section className="restaurant-container">
+          <h3>Results:</h3>
+          {this.state.restaurantsList}
+        </section>
       </main>
     );
   }
 }
 
-export default RestaurantContainer;
+export const mapStateToProps = (state) => ({
+  restaurants: state.restaurants,
+});
+
+export const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RestaurantContainer);
