@@ -1,12 +1,13 @@
-import React, { Component } from "react";
-import logo from "../logo.svg";
+import React from "react";
 import "./App.css";
+import RestaurantContainer from "../RestaurantContainer/RestaurantContainer";
 
 function App() {
   return (
-    <body>
+    <main>
       <header>find my food</header>
-    </body>
+      <RestaurantContainer />
+    </main>
   );
 }
 
