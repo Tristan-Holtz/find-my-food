@@ -5,7 +5,9 @@ import RestaurantContainer from "../RestaurantContainer/RestaurantContainer";
 function App() {
   return (
     <main>
-      <header>find my food</header>
+      <header className="header">
+        <h1>find my food</h1>
+      </header>
       <RestaurantContainer />
     </main>
   );
