@@ -1,7 +1,7 @@
 const restaurantReducer = (state = [], action) => {
   switch (action.type) {
     case "SEARCH_RESTAURANTS":
-      return [...state, action.search];
+      return action.search;
     default:
       return state;
   }
