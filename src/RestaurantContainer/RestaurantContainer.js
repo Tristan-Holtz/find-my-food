@@ -53,19 +53,24 @@ export class RestaurantContainer extends Component {
     this.makePages();
   }
 
-  changePage(number = 0) {
+  changePage(number) {
     if (this.props.currentPages.length > number - 1) {
+      this.setState({ pageNumber: number });
       this.props.changeSelection(this.props.currentPages[number]);
     }
   }
 
   render() {
     const { restaurants } = this.props;
-    console.log(restaurants);
     if (restaurants.length) {
       return (
         <main>
-          <FilterMenu restaurants={this.state.restaurants} />
+          <div className="header-div">
+            <FilterMenu restaurants={this.state.restaurants} />
+            <header className="header">
+              <h1>find my food</h1>
+            </header>
+          </div>
           <section className="restaurant-container">
             <div className="container-top">
               <h3>Results:</h3>
@@ -100,7 +105,10 @@ export class RestaurantContainer extends Component {
                   </button>
                 </p>
               </div>
-              <button></button>
+              <p>
+                viewing page {this.state.pageNumber + 1} of{" "}
+                {this.props.currentPages.length}
+              </p>
             </div>
             {this.props.currentPage}
           </section>
