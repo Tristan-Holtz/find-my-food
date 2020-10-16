@@ -117,10 +117,19 @@ export class RestaurantContainer extends Component {
     } else {
       return (
         <main>
-          <FilterMenu restaurants={this.state.restaurants} />
+          <div className="header-div">
+            <FilterMenu restaurants={this.state.restaurants} />
+            <header className="header">
+              <h1>find my food</h1>
+            </header>
+          </div>
           <section className="restaurant-container">
-            <h3>Results:</h3>
-            <p>No results found</p>
+            <div className="container-top">
+              <h3>Results:</h3>
+              <p>No results found</p>
+              <div></div>
+              <p>try another search</p>
+            </div>
           </section>
         </main>
       );
