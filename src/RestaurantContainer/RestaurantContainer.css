@@ -1,13 +1,22 @@
 .restaurant-container {
   background-color: gray;
-  overflow: scroll;
+  box-shadow: inset 0 5px 10px #000000;
+  margin-top: 13.5em;
+  overflow: auto;
   width: 100%;
 }
 
 .container-top {
+  background-color: gray;
   display: flex;
   justify-content: space-between;
+  margin-top: 3.5em;
   padding: 1em;
+  padding-top: 4em;
+  position: fixed;
+  top: 0;
+  width: 97%;
+  z-index: 10;
 }
 
 .page-button {
@@ -28,6 +37,10 @@
   background-color: orange;
   display: flex;
   flex-direction: row;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .header {
@@ -54,7 +67,7 @@ h1 {
 
 h3 {
   color: #fff;
-  margin-bottom: 2em;
+  /* margin-bottom: 2em; */
 }
 
 label {
@@ -64,4 +77,8 @@ label {
 
 input {
   padding: 0.1em;
+}
+
+body {
+  background-color: gray;
 }
