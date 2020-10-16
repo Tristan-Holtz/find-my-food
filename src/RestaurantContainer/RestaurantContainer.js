@@ -61,7 +61,7 @@ export class RestaurantContainer extends Component {
   };
 
   render() {
-    const { restaurants } = this.props;
+    const { restaurants, currentPage, currentPages } = this.props;
     if (restaurants.length) {
       return (
         <main>
@@ -104,13 +104,17 @@ export class RestaurantContainer extends Component {
               </div>
               <p className="page-display">
                 viewing page {this.state.pageNumber + 1} of{" "}
-                {this.props.currentPages.length}
+                {currentPages.length}
               </p>
             </div>
-            {this.props.currentPage}
+            <div
+              className="restaurant-cards"
+              style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
+            >
+              {currentPage}
+            </div>
             <p className="page-display_bottom">
-              viewing page {this.state.pageNumber + 1} of{" "}
-              {this.props.currentPages.length}
+              viewing page {this.state.pageNumber + 1} of {currentPages.length}
             </p>
           </section>
         </main>
