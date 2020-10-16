@@ -82,21 +82,18 @@ export class RestaurantContainer extends Component {
                   >
                     1
                   </button>
-                  ,
                   <button
                     className="page-button"
                     onClick={() => this.changePage(1)}
                   >
                     2
                   </button>
-                  ,
                   <button
                     className="page-button"
                     onClick={() => this.changePage(2)}
                   >
                     3
                   </button>
-                  ,
                   <button
                     className="page-button"
                     onClick={() => this.changePage(3)}
@@ -105,7 +102,7 @@ export class RestaurantContainer extends Component {
                   </button>
                 </p>
               </div>
-              <p>
+              <p className="page-display">
                 viewing page {this.state.pageNumber + 1} of{" "}
                 {this.props.currentPages.length}
               </p>
