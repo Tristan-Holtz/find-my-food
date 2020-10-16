@@ -16,6 +16,11 @@
   outline: none;
 }
 
+.page-button:hover {
+  color: orange;
+  font-size: 1.5em;
+}
+
 .header-div {
   background-color: orange;
   display: flex;
@@ -32,6 +37,10 @@
 h1 {
   color: #fff;
   margin-right: 8em;
+}
+
+h3 {
+  margin-bottom: 2em;
 }
 
 label {
