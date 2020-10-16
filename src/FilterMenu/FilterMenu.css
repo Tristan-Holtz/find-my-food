@@ -9,6 +9,10 @@
   width: 10em;
 }
 
+.state-input {
+  border-radius: 0 0.5em 0 0;
+}
+
 .genre-div {
   display: flex;
   justify-content: space-between;
