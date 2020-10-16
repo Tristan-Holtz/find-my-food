@@ -41,6 +41,12 @@
   color: #fff;
 }
 
+.page-display_bottom {
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
 h1 {
   color: #fff;
   margin-right: 8em;

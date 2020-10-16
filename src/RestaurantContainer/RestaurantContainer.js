@@ -17,7 +17,7 @@ export class RestaurantContainer extends Component {
     pageNumber: 0,
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetch("https://code-challenge.spectrumtoolbox.com/api/restaurants", {
       headers: {
         Authorization: "Api-Key q3MNxtfep8Gt",
@@ -26,9 +26,9 @@ export class RestaurantContainer extends Component {
       .then((response) => response.json())
       .then((restaurants) => this.getRestaurantList(restaurants))
       .catch((error) => console.log(error));
-  }
+  };
 
-  makePages() {
+  makePages = () => {
     const { restaurants } = this.props;
     const restaurantList = restaurants.map((res) => {
       return <RestaurantRow info={res} />;
@@ -42,23 +42,23 @@ export class RestaurantContainer extends Component {
     }
     this.props.changeCurrentPage(currentSelection);
     this.props.changeSelection(currentSelection[0]);
-  }
+  };
 
-  getRestaurantList(places) {
+  getRestaurantList = (places) => {
     const sortedList = places.sort((a, b) =>
       a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1
     );
     this.setState({ restaurants: [sortedList] });
     searchRestaurants(sortedList);
     this.makePages();
-  }
+  };
 
-  changePage(number) {
+  changePage = (number) => {
     if (this.props.currentPages.length > number - 1) {
       this.setState({ pageNumber: number });
       this.props.changeSelection(this.props.currentPages[number]);
     }
-  }
+  };
 
   render() {
     const { restaurants } = this.props;
@@ -108,6 +108,10 @@ export class RestaurantContainer extends Component {
               </p>
             </div>
             {this.props.currentPage}
+            <p className="page-display_bottom">
+              viewing page {this.state.pageNumber + 1} of{" "}
+              {this.props.currentPages.length}
+            </p>
           </section>
         </main>
       );
