@@ -18,9 +18,10 @@ export class FilterMenu extends Component {
   };
 
   componentDidUpdate = () => {
-    if (this.state.genre === "" && this.state.state === "") {
-      this.props.resetRestaurants(this.state.originalRestaurants[0]);
-    } else if (this.state.genre === "" || this.state.state === "") {
+    const { state, genre, originalRestaurants } = this.state;
+    if (genre === "" && state === "") {
+      this.props.resetRestaurants(originalRestaurants[0]);
+    } else if (genre === "" || state === "") {
       this.filterRestaurants();
     }
   };

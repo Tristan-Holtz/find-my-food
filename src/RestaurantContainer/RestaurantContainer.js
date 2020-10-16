@@ -54,9 +54,10 @@ export class RestaurantContainer extends Component {
   };
 
   changePage = (number) => {
-    if (this.props.currentPages.length > number - 1) {
+    const { changeSelection, currentPages } = this.props;
+    if (currentPages.length > number - 1) {
       this.setState({ pageNumber: number });
-      this.props.changeSelection(this.props.currentPages[number]);
+      changeSelection(currentPages[number]);
     }
   };
 
@@ -130,10 +131,9 @@ export class RestaurantContainer extends Component {
           </div>
           <section className="restaurant-container">
             <div className="container-top">
-              <h3>Results:</h3>
-              <p>No results found</p>
+              <h3>No results found</h3>
               <div></div>
-              <p>try another search</p>
+              <p>Try another search</p>
             </div>
           </section>
         </main>

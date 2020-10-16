@@ -14,7 +14,6 @@ export class RestaurantRow extends Component {
       id,
     } = this.props.info;
     const splitGenres = genre.split(",");
-    console.log(this.props.info);
     return (
       <section key={id} className="restaurant-row">
         <div className="row_div-right">
