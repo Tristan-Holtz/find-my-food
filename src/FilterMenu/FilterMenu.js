@@ -103,7 +103,7 @@ export class FilterMenu extends Component {
           <div className="genre-div">
             <label>Genre</label>
             <input
-              placeholder="Cafe, Asian, etc.."
+              placeholder="Cafe, Steak, etc.."
               className="genre-input"
               name="genre"
               onChange={this.handleChange}

@@ -5,7 +5,7 @@ export class RestaurantRow extends Component {
 
   render() {
     const { genre, name, city, state, telephone, address1 } = this.props.info;
-    console.log(this.props.info);
+    const splitGenres = genre.split(",");
     return (
       <section className="restaurant-row">
         <div className="row_div-right">
@@ -14,7 +14,7 @@ export class RestaurantRow extends Component {
             <b>Phone Number:</b> {telephone}
           </p>
           <p>
-            <b>Cuisine:</b> {genre}
+            <b>Cuisine:</b> {splitGenres.join(", ")}
           </p>
         </div>
         <div className="row_div-left">
