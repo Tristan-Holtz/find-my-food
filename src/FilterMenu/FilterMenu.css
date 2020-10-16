@@ -1,0 +1,26 @@
+.filter-form {
+  padding: 1em;
+}
+
+.state-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  width: 10em;
+}
+
+.genre-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  width: 10em;
+}
+
+.submit-button {
+  cursor: pointer;
+  font-weight: bolder;
+  color: orange;
+  margin-left: 0.75em;
+  outline: #fff;
+  width: 14.5em;
+}

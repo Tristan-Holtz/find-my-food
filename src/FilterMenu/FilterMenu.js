@@ -7,6 +7,7 @@ import {
 } from "../actions/index";
 import { connect } from "react-redux";
 import RestaurantRow from "../RestaurantRow/RestaurantRow.js";
+import "./FilterMenu.css";
 
 export class FilterMenu extends Component {
   state = {
@@ -105,10 +106,14 @@ export class FilterMenu extends Component {
               name="genre"
               onChange={this.handleChange}
             ></input>
-            <button type="submit" onClick={this.filterRestaurants}>
-              Submit
-            </button>
           </div>
+          <button
+            className="submit-button"
+            type="submit"
+            onClick={this.filterRestaurants}
+          >
+            F I N D
+          </button>
         </form>
       </aside>
     );
