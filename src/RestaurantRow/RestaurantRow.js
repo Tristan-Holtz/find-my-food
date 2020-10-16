@@ -4,7 +4,8 @@ export class RestaurantRow extends Component {
   state = {};
 
   render() {
-    const { genre, name, city, state, telephone } = this.props.info;
+    const { genre, name, city, state, telephone, address1 } = this.props.info;
+    console.log(this.props.info);
     return (
       <section className="restaurant-row">
         <div className="row_div-right">
@@ -17,10 +18,10 @@ export class RestaurantRow extends Component {
           </p>
         </div>
         <div className="row_div-left">
+          <p>{address1}</p>
           <p>
             {city}, {state}
           </p>
-          <p>more info</p>
         </div>
       </section>
     );
