@@ -2,3 +2,14 @@
   overflow: scroll;
   width: 100%;
 }
+
+.container-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
