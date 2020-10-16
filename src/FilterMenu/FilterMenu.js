@@ -1,18 +1,40 @@
 import React, { Component } from "react";
-import { searchRestaurants } from "../actions/index";
+import {
+  searchRestaurants,
+  resetRestaurants,
+  changeCurrentPage,
+  changeSelection,
+} from "../actions/index";
 import { connect } from "react-redux";
+import RestaurantRow from "../RestaurantRow/RestaurantRow.js";
 
 export class FilterMenu extends Component {
   state = {
+    originalRestaurants: [],
     restaurants: [],
     genre: "",
     state: "",
   };
 
+  componentDidUpdate = () => {
+    if (this.state.genre === "" && this.state.state === "") {
+      this.props.resetRestaurants(this.state.originalRestaurants[0]);
+    } else if (this.state.genre === "" || this.state.state === "") {
+      this.filterRestaurants();
+    }
+  };
+
   filterRestaurants = (e) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     const { genre, state } = this.state;
-    const { restaurants, searchRestaurants } = this.props;
+    const {
+      restaurants,
+      searchRestaurants,
+      changeCurrentPage,
+      changeSelection,
+    } = this.props;
     let results = [];
     if (genre) {
       results = restaurants[0].filter((res) => {
@@ -33,14 +55,38 @@ export class FilterMenu extends Component {
           return res.state.toLowerCase().includes(state.toLowerCase());
         });
     }
+    const newPages = this.makePages(results);
     searchRestaurants(results);
+    changeCurrentPage(newPages);
+    if (newPages.length < 10) {
+      changeSelection(newPages);
+    } else {
+      changeSelection(newPages[0]);
+    }
   };
+
+  makePages(results) {
+    const restaurantList = results.map((res) => {
+      return <RestaurantRow info={res} />;
+    });
+    let currentSelection = [];
+    if (restaurantList.length > 10) {
+      currentSelection.push(restaurantList.slice(0, 10));
+      currentSelection.push(restaurantList.slice(10, 20));
+      currentSelection.push(restaurantList.slice(20, 30));
+      currentSelection.push(restaurantList.slice(30));
+      return currentSelection;
+    } else {
+      return restaurantList;
+    }
+  }
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
+    this.state.originalRestaurants = this.props.restaurants;
     return (
       <aside className="filter-aside">
         <form className="filter-form">
@@ -72,6 +118,15 @@ export class FilterMenu extends Component {
 export const mapDispatchToProps = (dispatch) => ({
   searchRestaurants: (search) => {
     dispatch(searchRestaurants(search));
+  },
+  resetRestaurants: (reset) => {
+    dispatch(resetRestaurants(reset));
+  },
+  changeCurrentPage: (page) => {
+    dispatch(changeCurrentPage(page));
+  },
+  changeSelection: (currentSelection) => {
+    dispatch(changeSelection(currentSelection));
   },
 });
 
