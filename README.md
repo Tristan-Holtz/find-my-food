@@ -1,6 +1,6 @@
 ## About find my food
 
-find my food is an app that pulls from a simple REST API and allows a user to filter for a restaurant by state or genre of food.
+find my food is an app that pulls restaurant data from a simple REST API and allows a user to filter for a restaurant by state or genre of food.
 
 ### Production Link
 
