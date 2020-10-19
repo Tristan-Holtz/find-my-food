@@ -7,6 +7,11 @@
   justify-content: space-between;
   margin: 1em;
   padding: 1em;
+  -webkit-transition: box-shadow 0.25s ease-out;
+}
+
+.restaurant-row:hover {
+  box-shadow: 0 7.5px 0 0 darkorange;
 }
 
 .row_div-right {
