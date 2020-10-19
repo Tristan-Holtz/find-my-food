@@ -57,6 +57,9 @@ export class FilterMenu extends Component {
           return res.state.toLowerCase().includes(state.toLowerCase());
         });
     }
+    if (genre === "" && state === "") {
+      results = restaurants[0];
+    }
     const newPages = this.makePages(results);
     searchRestaurants(results);
     changeCurrentPage(newPages);
